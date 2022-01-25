@@ -44,8 +44,8 @@ var AudioLooper = function (bufferSize) {
         }.bind(this);
 
         // Connect to output audio device.
-        if (this.bufferSource['noteOn'])
-            this.bufferSource['noteOn'](0);
+        if (this.bufferSource['start'])
+            this.bufferSource['start'](0);
         this.bufferSource['connect'](this.jsNode);
         this.jsNode['connect'](this.audioContext['destination']);
 
@@ -213,6 +213,6 @@ AudioLooper.prototype.isActive = function () {
 AudioLooper.prototype.activate = function () {
     if (this.isActive())
         return;
-    this.bufferSource['noteOn'](0);
+    this.bufferSource['start'](0);
 };
 
